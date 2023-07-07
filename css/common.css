@@ -1,0 +1,223 @@
+@charset "UTF-8";
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+@font-face {
+    font-family: 'HeirofLight';
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightRegular.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightRegular.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightRegular.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightRegular.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightRegular.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'HeirofLight';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightBold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightBold.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightBold.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightBold.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/heiroflight/HeirofLightBold.ttf') format("truetype");
+    font-display: swap;
+}
+
+*{ 
+    padding: 0; margin: 0; box-sizing: border-box;
+    font-family:  "Pretendard Variable", "Noto Sans KR","Apple SD Gothic Neo",  "Malgun Gothic",sans-serif;
+    color: #333; font-size: 16px;
+}
+li{ list-style: none; }
+a{ text-decoration: none; }
+img{ display: block; }
+button{ cursor: pointer; }
+fieldset{ border: none; }
+.away{ position: absolute; left: -999em; } 
+p{ line-height: 1.5; }
+
+
+/* body_wrap */
+.body_wrap{ position: relative; width: 100%; overflow: hidden; }
+.black_bg{
+    display: none;
+    position: absolute; left: 0; top: 0; z-index: 6000; 
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    text-indent: -999em;
+}
+
+
+/* panel */
+.panel{
+    position: fixed; top: 0; left: -80%; z-index: 7000; 
+    width: 80%; height: 100%; overflow-y:  auto; 
+    background-color: #fff;
+    transition: left 0.6s;
+}
+.panel.active{ left: 0; }
+.panel img{ width: 50%; margin: 0 auto; }
+.p_top{ 
+    display: flex; justify-content: center; align-items: center;
+    width: 100%; height: 3.75rem;
+    padding: 0 16px; box-sizing: border-box;}
+.p_top li{ position: relative; margin: 0 15px; }
+.p_top li::after{
+    content: '';
+    position: absolute; top: 15%; bottom: 0; right: -15px;
+    width: 1px; height: 0.75rem; margin: auto 0;
+    background-color: #333;
+}
+.p_top li:last-child::after{ display: none; }
+
+.gnb{ width: 100%; }
+.gnb .main_nav{
+    position: relative;
+    display: block; width: 100%; height: 3.75rem; padding: 0 16px;
+    font-size: 1.5rem; color: #1f275b; line-height: 3.75rem;
+}
+.gnb .main_nav::before, .gnb .main_nav::after{
+    content: '';
+    position: absolute; right: 16px; top: 0; bottom: 0;
+    width: 1.25rem; height: 2px; margin: auto 0;
+    background-color: #1f275b; 
+}
+.gnb .main_nav::after{ transform: rotate(90deg); }
+.gnb .main_nav.active{ color: #e9c169; }
+.gnb .main_nav.active::before{ background-color: #e9c169; }
+.gnb .main_nav.active::after{ display:none; }
+
+.gnb .sub_nav{ 
+    display: none;
+    width: 90%; margin: 0 auto;
+    border-top: 1px solid #ccc; 
+    border-bottom: 1px solid #ccc;
+}
+.gnb .sub_nav li{
+    width: 100%; height: 3.125rem;
+    line-height: calc(3.125rem - 1px);
+}
+.gnb .sub_nav a{
+    display: block; width: 100%; height: 100%; padding: 0 16px;
+}
+
+.p_bottom{
+    display: flex; justify-content: center;
+    margin-top: 30px;
+}
+.p_bottom li{ 
+    width: 7.5rem; height: 2.5rem; margin: auto 10px; 
+    border-radius: 10px; border: 1px solid rgba(31, 39, 91, 50%);
+}
+.p_bottom a{ 
+    display: flex; justify-content: center;
+    margin-top: 5px;
+}
+.p_bottom p{
+    height: 1.5rem; 
+}
+.p_bottom img{ 
+    width: 1.5rem; height: 1.5rem;  
+    margin: 0 5px 0 0; 
+}
+
+/* header */
+header{
+    display: flex; justify-content: space-between; align-items: center;
+    position: relative;
+    width: 100%; height: 4rem; padding: 0 10px;
+}
+.panel_btn, .panel_btn span {
+    display : inline-block;
+    transition : all .4s;
+    box-sizing : border-box;
+}
+.panel_btn {
+    position : relative; z-index: 8000;
+    width : 2rem; height : 1.6rem;
+}
+.panel_btn span {
+    position : absolute; left : 0;
+    width : 2rem; height : 0.1rem;
+    background-color : #333;
+    border-radius : 4px;
+}
+.panel_btn span:nth-of-type(1) {
+    top : 0;
+}
+.panel_btn span:nth-of-type(2) {
+    top : 0.8rem;
+}
+.panel_btn span:nth-of-type(3) {
+    bottom : 0;
+}
+.panel_btn.active{ 
+    position: absolute;
+    transition: 0.7s;
+}
+.panel_btn.active span:nth-of-type(1) {
+    -webkit-transform : translateY(0.625rem) rotate(-45deg);
+    transform : translateY(0.625rem) rotate(-45deg);
+}
+.panel_btn.active span:nth-of-type(2) {
+    opacity : 0;
+}
+.panel_btn.active span:nth-of-type(3) {
+    -webkit-transform : translateY(-0.625rem) rotate(45deg);
+    transform : translateY(-0.625rem) rotate(45deg);
+}
+
+header > a > img{ height: 2rem; }
+header > h1 > a > img{ height: 3rem; }
+
+/* footer */
+footer{
+    width: 100%; padding: 20px;
+    background-color: #1f275b;
+}
+footer .f_nav{
+    display: flex; justify-content: center;
+    width: 100%; margin-bottom: 16px;
+}
+.f_nav li{margin: 0 5px;}
+.f_nav a{ color: #fff; font-size: 0.75rem;}
+.f_logo img{
+    width: 100%; height: 50px; 
+    margin: 0 auto; object-fit: contain;
+    }
+.f_sns{ display: flex; justify-content: center; }
+.f_sns li{ margin: 0 10px; }
+.f_sns img{ 
+    width: 100%; height: 50px;
+    margin: 16px 0; object-fit: contain;
+}
+
+
+footer p{
+    font-size: 0.75rem; color: #fff; text-align: center;
+}
+footer p a{ 
+    font-size: 0.75rem; color: #fff;
+}
+
+
+/* iphone12pro */
+@media screen and (max-width: 375px) {
+    * { font-size: 14px; }
+    .panel_btn.active span:nth-of-type(1) {
+        position: absolute; top: 3px;
+    }
+}
+/* iphone6/7/8 */
+@media screen and (max-width: 375px) {
+    * { font-size: 14px; }
+}
+
+/* iphone5/SE */
+@media screen and (max-width: 320px) {
+    * { font-size: 12px; }
+    .panel_btn.active span:nth-of-type(1) {
+        position: absolute; top: 3px;
+    }
+}
